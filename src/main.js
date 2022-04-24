@@ -1,17 +1,25 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import PageHome from "@/components/PageHome";
-import * as VueRouter from 'vue-router'
+import { createRouter, createWebHistory }  from 'vue-router'
+import PageThreadShow from "@/components/PageThreadShow";
 
 const routes = [
   {
     path: '/',
+    name: 'Home',
     component: PageHome
+  },
+  {
+    path: '/thread/:id',
+    name: 'ThreadShow',
+    component: PageThreadShow,
+    props: true
   }
 ]
 
-const router = VueRouter.createRouter({
-  history: VueRouter.createWebHistory(),
+const router = createRouter({
+  history: createWebHistory(),
   routes,
 })
 
